@@ -9,6 +9,6 @@ const AppHeader = () => {
       </div>
     </header>
   );
-}; 
+};
 
 export default AppHeader;

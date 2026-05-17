@@ -1,17 +1,19 @@
 {
-  "short_name": "ClimaGlass",
-  "name": "ClimaGlass Weather Dashboard",
-  "description": "Live weather, AQI, smart alerts and forecasts.",
+  "short_name": "Ather",
+  "name": "Ather - Real-Time Weather Forecast App",
+  "description": "Ather is a modern weather app that provides live weather updates, AQI, smart alerts, forecasts, temperature, humidity, wind speed, and location-based weather details.",
   "icons": [
     {
-      "src": "logo192.png",
+      "src": "Ather.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "Ather.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
