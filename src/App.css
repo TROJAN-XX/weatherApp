@@ -2371,6 +2371,16 @@
   .leaflet-map {
     min-height: 220px;
   }
+  .app-footer {
+    margin-top: 16px;
+    padding-bottom: 6px;
+  }
+
+  .footer-link {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -2380,5 +2390,102 @@
 
   .leaflet-map {
     min-height: 190px;
+  }
+}
+
+.background-overlay {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app-footer {
+  width: 100%;
+  max-width: 1180px;
+  margin-top: 22px;
+  padding-bottom: 8px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  animation: footerSoftPop 0.9s ease forwards;
+  animation-delay: 0.35s;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.footer-link:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: var(--glass-bg-strong);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+}
+
+.blooming-heart {
+  display: inline-block;
+  animation: bloomingHeart 1.35s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes footerSoftPop {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.94);
+    filter: blur(8px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.015);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes bloomingHeart {
+  0% {
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 0 rgba(244, 63, 94, 0));
+  }
+
+  40% {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.8));
+  }
+
+  70% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px rgba(244, 63, 94, 0.45));
+  }
+
+  100% {
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 0 rgba(244, 63, 94, 0));
   }
 }

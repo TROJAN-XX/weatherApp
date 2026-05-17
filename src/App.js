@@ -6,7 +6,7 @@ import {
   fetchPlaceNameByCoordinates,
   searchLocationByCity,
 } from "./api/geocodingApi";
-
+import AppFooter from './components/AppFooter';
 import AppHeader from "./components/AppHeader";
 import WeatherEffects from "./components/WeatherEffects";
 import CurrentWeatherCard from "./components/CurrentWeatherCard";
@@ -334,6 +334,7 @@ const App = () => {
             />
           </section>
         </main>
+        <AppFooter />
       </div>
     </div>
   );
