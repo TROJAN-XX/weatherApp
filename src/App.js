@@ -261,16 +261,16 @@ const App = () => {
       <div className="background-overlay">
         <main className="weather-dashboard">
           <div className="main-column">
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <AppHeader />
             </TiltCard>
 
             <div className="top-control-row">
-              <TiltCard intensity={10}>
+              <TiltCard intensity={3}>
                 <ThemeToggle theme={theme} setTheme={setTheme} />
               </TiltCard>
 
-              <TiltCard intensity={10}>
+              <TiltCard intensity={3}>
                 <UnitToggle
                   temperatureUnit={temperatureUnit}
                   setTemperatureUnit={setTemperatureUnit}
@@ -278,7 +278,7 @@ const App = () => {
               </TiltCard>
             </div>
 
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <CurrentWeatherCard
                 searchInput={searchInput}
                 setSearchInput={setSearchInput}
@@ -302,14 +302,14 @@ const App = () => {
                 location={location}
                 onUseGpsLocation={onUseGpsLocation}
                 temperatureUnit={temperatureUnit}
-                />
+              />
             </TiltCard>
 
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <WeatherAlerts alerts={alerts} />
             </TiltCard>
-    
-            <TiltCard intensity={5}>
+
+            <TiltCard intensity={3}>
               <AirQualityCard
                 airQuality={airQuality}
                 isAirQualityLoading={isAirQualityLoading}
@@ -317,20 +317,20 @@ const App = () => {
                 retryAirQualityFetch={retryAirQualityFetch}
               />
             </TiltCard>
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <SunCycleCard dailyForecast={dailyForecast} />
             </TiltCard>
           </div>
 
           <section className="forecast-panel">
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <MapView
                 selectedLocation={selectedLocation}
                 placeName={placeName}
                 onMapLocationSelect={onMapLocationSelect}
               />
             </TiltCard>
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <SavedLocations
                 favoriteCities={favoriteCities}
                 recentSearches={recentSearches}
@@ -338,7 +338,7 @@ const App = () => {
                 onRemoveFavorite={onRemoveFavorite}
               />
             </TiltCard>
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <HourlyForecast
                 hourlyForecast={hourlyForecast}
                 temperatureUnit={temperatureUnit}
@@ -346,7 +346,7 @@ const App = () => {
               />
             </TiltCard>
 
-            <TiltCard intensity={5}>
+            <TiltCard intensity={3}>
               <DailyForecast
                 dailyForecast={dailyForecast}
                 temperatureUnit={temperatureUnit}
@@ -355,7 +355,7 @@ const App = () => {
             </TiltCard>
           </section>
         </main>
-        <ParallaxSection strength={25} >
+        <ParallaxSection strength={25}>
           <AppFooter />
         </ParallaxSection>
       </div>
