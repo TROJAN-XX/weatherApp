@@ -13,3 +13,15 @@ button,
 input {
   font-family: inherit;
 }
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  -ms-overflow-style: none; /* old Edge/IE */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}

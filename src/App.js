@@ -6,7 +6,7 @@ import {
   fetchPlaceNameByCoordinates,
   searchLocationByCity,
 } from "./api/geocodingApi";
-import AppFooter from './components/AppFooter';
+import AppFooter from "./components/AppFooter";
 import AppHeader from "./components/AppHeader";
 import WeatherEffects from "./components/WeatherEffects";
 import CurrentWeatherCard from "./components/CurrentWeatherCard";
@@ -19,6 +19,8 @@ import AirQualityCard from "./components/AirQualityCard";
 import WeatherAlerts from "./components/WeatherAlerts";
 import MapView from "./components/MapView";
 import SunCycleCard from "./components/SunCycleCard";
+import ParallaxSection from "./components/ParallaxSection";
+import TiltCard from "./components/TiltCard";
 
 import { temperatureUnits } from "./utils/temperatureUtils";
 import { getStoredTheme, saveTheme, themes } from "./utils/themeUtils";
@@ -259,82 +261,103 @@ const App = () => {
       <div className="background-overlay">
         <main className="weather-dashboard">
           <div className="main-column">
-            <AppHeader />
+            <TiltCard intensity={5}>
+              <AppHeader />
+            </TiltCard>
 
             <div className="top-control-row">
-              <ThemeToggle theme={theme} setTheme={setTheme} />
+              <TiltCard intensity={10}>
+                <ThemeToggle theme={theme} setTheme={setTheme} />
+              </TiltCard>
 
-              <UnitToggle
-                temperatureUnit={temperatureUnit}
-                setTemperatureUnit={setTemperatureUnit}
-              />
+              <TiltCard intensity={10}>
+                <UnitToggle
+                  temperatureUnit={temperatureUnit}
+                  setTemperatureUnit={setTemperatureUnit}
+                />
+              </TiltCard>
             </div>
 
-            <CurrentWeatherCard
-              searchInput={searchInput}
-              setSearchInput={setSearchInput}
-              onSearchSubmit={onSearchSubmit}
-              isSearching={isSearching}
-              searchError={searchError}
-              selectedLocation={selectedLocation}
-              placeName={placeName}
-              onAddFavorite={onAddFavorite}
-              isCurrentLocationFavorite={isCurrentLocationFavorite}
-              isLocationLoading={isLocationLoading}
-              locationError={locationError}
-              weatherError={weatherError}
-              retryWeatherFetch={retryWeatherFetch}
-              currentWeather={currentWeather}
-              weather={weather}
-              isWeatherLoading={isWeatherLoading}
-              latitude={latitude}
-              longitude={longitude}
-              accuracy={accuracy}
-              location={location}
-              onUseGpsLocation={onUseGpsLocation}
-              temperatureUnit={temperatureUnit}
-            />
+            <TiltCard intensity={5}>
+              <CurrentWeatherCard
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                onSearchSubmit={onSearchSubmit}
+                isSearching={isSearching}
+                searchError={searchError}
+                selectedLocation={selectedLocation}
+                placeName={placeName}
+                onAddFavorite={onAddFavorite}
+                isCurrentLocationFavorite={isCurrentLocationFavorite}
+                isLocationLoading={isLocationLoading}
+                locationError={locationError}
+                weatherError={weatherError}
+                retryWeatherFetch={retryWeatherFetch}
+                currentWeather={currentWeather}
+                weather={weather}
+                isWeatherLoading={isWeatherLoading}
+                latitude={latitude}
+                longitude={longitude}
+                accuracy={accuracy}
+                location={location}
+                onUseGpsLocation={onUseGpsLocation}
+                temperatureUnit={temperatureUnit}
+                />
+            </TiltCard>
 
-            <WeatherAlerts alerts={alerts} />
-
-            <AirQualityCard
-              airQuality={airQuality}
-              isAirQualityLoading={isAirQualityLoading}
-              airQualityError={airQualityError}
-              retryAirQualityFetch={retryAirQualityFetch}
-            />
-
-            <SunCycleCard dailyForecast={dailyForecast} />
+            <TiltCard intensity={5}>
+              <WeatherAlerts alerts={alerts} />
+            </TiltCard>
+    
+            <TiltCard intensity={5}>
+              <AirQualityCard
+                airQuality={airQuality}
+                isAirQualityLoading={isAirQualityLoading}
+                airQualityError={airQualityError}
+                retryAirQualityFetch={retryAirQualityFetch}
+              />
+            </TiltCard>
+            <TiltCard intensity={5}>
+              <SunCycleCard dailyForecast={dailyForecast} />
+            </TiltCard>
           </div>
 
           <section className="forecast-panel">
-            <MapView
-              selectedLocation={selectedLocation}
-              placeName={placeName}
-              onMapLocationSelect={onMapLocationSelect}
-            />
+            <TiltCard intensity={5}>
+              <MapView
+                selectedLocation={selectedLocation}
+                placeName={placeName}
+                onMapLocationSelect={onMapLocationSelect}
+              />
+            </TiltCard>
+            <TiltCard intensity={5}>
+              <SavedLocations
+                favoriteCities={favoriteCities}
+                recentSearches={recentSearches}
+                onSelectSavedLocation={onSelectSavedLocation}
+                onRemoveFavorite={onRemoveFavorite}
+              />
+            </TiltCard>
+            <TiltCard intensity={5}>
+              <HourlyForecast
+                hourlyForecast={hourlyForecast}
+                temperatureUnit={temperatureUnit}
+                isWeatherLoading={isWeatherLoading}
+              />
+            </TiltCard>
 
-            <SavedLocations
-              favoriteCities={favoriteCities}
-              recentSearches={recentSearches}
-              onSelectSavedLocation={onSelectSavedLocation}
-              onRemoveFavorite={onRemoveFavorite}
-            />
-
-            <HourlyForecast
-              hourlyForecast={hourlyForecast}
-              temperatureUnit={temperatureUnit}
-              isWeatherLoading={isWeatherLoading}
-            />
-
-            <DailyForecast
-              dailyForecast={dailyForecast}
-              temperatureUnit={temperatureUnit}
-              isWeatherLoading={isWeatherLoading}
-            />
+            <TiltCard intensity={5}>
+              <DailyForecast
+                dailyForecast={dailyForecast}
+                temperatureUnit={temperatureUnit}
+                isWeatherLoading={isWeatherLoading}
+              />
+            </TiltCard>
           </section>
         </main>
-        <AppFooter />
+        <ParallaxSection strength={25} >
+          <AppFooter />
+        </ParallaxSection>
       </div>
     </div>
   );
